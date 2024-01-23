@@ -19,11 +19,11 @@ export default class GameData {
     resultHash: {};
 }
 
-export class GameConfigs {
+class GameConfigs {
     bot_maxbet: number;
     bot_minbet: number;
     botenabled: boolean;
-    choices_maxbet: { [choice: string]: number };
+    choices_maxbet: Record<string, number>;
     delayStartTime: number;
     enableFreeBet: boolean;
     enabled: boolean;
@@ -31,6 +31,18 @@ export class GameConfigs {
     maxbet: number;
     maxbot: number;
     minbet: number;
-    odds: { [name: string]: number };
+    odds: Record<string, number>;
     randomMode: number;
+    name: string;
+    disabledround: number;
+    slotsConfig: Record<string, any>;
+    siteExclusions: string[];
+    smartBotEnabled: boolean;
+    smartBotGroupRatio: number;
+    exchangeReload: boolean;
+    cascadingSlotsConfig: Record<string, any>;
+    slotRNGConfig: Record<string, any>;
+    gameId: number;
+    displayName: string;
+    type: number;
 }
