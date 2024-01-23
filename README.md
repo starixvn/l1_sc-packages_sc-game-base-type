@@ -1,0 +1,2 @@
+# Sc Game Base Type
+
