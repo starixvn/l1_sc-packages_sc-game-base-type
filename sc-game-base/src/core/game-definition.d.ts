@@ -12,9 +12,9 @@ export default class GameDefinition {
         }: {
             id?: number;
             name?: string;
-            durations?: {};
+            durations?: any;
             choices?: any[];
-            choicesMapper?: {};
+            choicesMapper?: any;
             hedgeBetGroups?: any[];
             numberOfRoundHistory?: number;
             historyPageSize?: number;
@@ -28,7 +28,7 @@ export default class GameDefinition {
     configName: string;
     durations: Duration;
     choices: any[];
-    choicesMapper: {};
+    choicesMapper: any;
     numberOfRoundHistory: number;
     historyPageSize: number;
     generateResult: any;

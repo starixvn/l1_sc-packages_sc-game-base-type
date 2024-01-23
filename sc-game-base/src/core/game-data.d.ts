@@ -1,22 +1,23 @@
 export default class GameData {
     constructor(remainingTime: any);
     remainingTime: any;
-    totalBets: {};
+    totalBets: any;
     roundId: number;
     delayStartTime: number;
     disabled: boolean;
     gameConfigs: GameConfigs;
-    realPlayers: {};
+    realPlayers: any;
     ingame: { [name: string]: any };
-    admins: {};
-    settlementResultFromAdmin: {};
-    umMessages: {};
-    exchangeRates: {};
+    admins: any;
+    settlementResultFromAdmin: any;
+    umMessages: any;
+    exchangeRates: any;
     currencyGroupGames: any[];
     currencies: any[];
     currencyGroups: any[];
     partnerGameSiteExclusions: any[];
-    resultHash: {};
+    resultHash: any;
+    winningPlayers: any;
 }
 
 class GameConfigs {
