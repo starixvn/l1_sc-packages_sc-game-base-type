@@ -18,6 +18,7 @@ export default class GameData {
     partnerGameSiteExclusions: any[];
     resultHash: any;
     winningPlayers: any;
+    lastResultRecord?: any;
 }
 
 class GameConfigs {

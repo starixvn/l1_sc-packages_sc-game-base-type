@@ -14,7 +14,20 @@ export default class BaseGameCron {
      * @param {GameManagementApiClientFactory} dependencies.gameManagementApiClientFactory
      * @param {RoundIdConsumer} dependencies.roundIdConsumer
      */
-    constructor({ definition, gameData, bot, settleGameRoundConsumer, gameStatusPublisher, runningRoundInfoPublisher, logService, roundResultConsumer, resultsRepository, appConfigs, gameManagementApiClientFactory, roundIdConsumer, }: {
+    constructor({
+        definition,
+        gameData,
+        bot,
+        settleGameRoundConsumer,
+        gameStatusPublisher,
+        runningRoundInfoPublisher,
+        logService,
+        roundResultConsumer,
+        resultsRepository,
+        appConfigs,
+        gameManagementApiClientFactory,
+        roundIdConsumer,
+    }: {
         definition: GameDefinition;
         gameData: GameData;
         bot: BaseBot;
@@ -24,6 +37,7 @@ export default class BaseGameCron {
         logService: logger;
         roundResultConsumer: RoundResultConsumer;
         resultsRepository: mongoose.Model;
+        appConfigs: any;
         gameManagementApiClientFactory: GameManagementApiClientFactory;
         roundIdConsumer: RoundIdConsumer;
     });
@@ -44,7 +58,7 @@ export default class BaseGameCron {
     initResultHash(): Promise<void>;
     startCron(): void;
     proceed(): Promise<void>;
-    isStartingTime(remainingTime: any, durations: any): boolean;
+    isStartingTime(remainingTime: number, durations: any): boolean;
     checkGameStatus(): Promise<void>;
     assignNewGameConfigs(newGameConfigs: any): void;
     handleGameStatus(previouslyDisabled: any): Promise<void>;

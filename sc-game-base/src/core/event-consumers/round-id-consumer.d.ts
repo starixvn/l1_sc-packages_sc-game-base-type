@@ -1,3 +1,6 @@
+import GameData from "../game-data";
+import GameDefinition from "../game-definition";
+
 export default class RoundIdConsumer {
     /**
      *
@@ -8,8 +11,8 @@ export default class RoundIdConsumer {
      * @param {GameManagementApiClientFactory} dependencies.gameManagementApiClientFactory
      */
     constructor(gameData: any, definition: any, roundsRepository: any, gameManagementApiClientFactory: any);
-    gameData: any;
-    definition: any;
+    gameData: GameData;
+    definition: GameDefinition;
     roundsRepository: any;
     gameManagementApiClient: any;
     initRoundId(): Promise<void>;
