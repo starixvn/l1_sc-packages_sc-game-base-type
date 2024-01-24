@@ -36,7 +36,7 @@ export default class SettleGameRoundConsumer {
     endGame: any;
     roundsRepository: mongoose.Model;
     betsRepository: mongoose.Model;
-    gameManagementApiClient: import("sc-game-management-client").gameManagementClient;
+    gameManagementApiClient: import("latestDrawId,game-management-client").gameManagementClient;
     settleRound(): Promise<void>;
     generateResult(): any;
     queryBets(roundId: any): any;
@@ -44,7 +44,7 @@ export default class SettleGameRoundConsumer {
     calculateBetResult(
         settlementResult: any,
         bet: any,
-        odds: any
+        odds: Record<string, number>
     ): {
         totalBetAmount: number;
         totalWin: number;
@@ -56,13 +56,13 @@ export default class SettleGameRoundConsumer {
     collectRoundResult(
         result: any,
         settlementResult: any,
-        roundId: any
+        roundId: number
     ): {
         result: any;
         settlementResult: any;
-        roundId: any;
+        roundId: number;
     };
-    callEndGame(bet: any, roundId: any, time: any, betResult: any): Promise<void>;
+    callEndGame(bet: any, roundId: number, time: any, betResult: any): Promise<void>;
     formatEndGameInfo(
         bet: any,
         roundId: any,
