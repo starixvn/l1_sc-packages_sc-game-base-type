@@ -11,7 +11,17 @@ export default class ProcessBetQueue {
      * @param {GameManagementApiClientFactory} dependencies.gameManagementApiClientFactory
      * @param {BaseMetrics} dependencies.baseMetrics
      */
-    constructor({ definition, gameData, placeBetPublisher, placeBet, logService, betsRepository, betLogsRepository, gameManagementApiClientFactory, baseMetrics, }: {
+    constructor({
+        definition,
+        gameData,
+        placeBetPublisher,
+        placeBet,
+        logService,
+        betsRepository,
+        betLogsRepository,
+        gameManagementApiClientFactory,
+        baseMetrics,
+    }: {
         definition: GameDefinition;
         gameData: GameData;
         placeBetPublisher: PlaceBetPublisher;
@@ -36,48 +46,53 @@ export default class ProcessBetQueue {
     dequeueBets(): void;
     proceedBet(player: any, payload: any): Promise<void>;
     validateBetRequest(player: any, payload: any): Promise<boolean>;
-    composeValidationCriteria(player: any, payload: any): Promise<{
+    composeValidationCriteria(
+        player: any,
+        payload: any
+    ): Promise<
+        {
+            failure: boolean;
+            notice: {
+                errorCode: string;
+            };
+        }[]
+    >;
+    composeBettingTimeValidationCriteria(roundId: number): {
         failure: boolean;
         notice: {
-            errorCode: any;
-        };
-    }[]>;
-    composeBettingTimeValidationCriteria(roundId: any): {
-        failure: boolean;
-        notice: {
-            errorCode: any;
+            errorCode: string;
         };
     }[];
-    composeBalanceValidationCriteria(player: any, payload: any): Promise<{
-        failure: boolean;
-        notice: {
-            errorCode: any;
-        };
-    }[]>;
+    composeBalanceValidationCriteria(
+        player: any,
+        payload: any
+    ): Promise<
+        {
+            failure: boolean;
+            notice: {
+                errorCode: string;
+            };
+        }[]
+    >;
     getCoinBalance(player: any): Promise<any>;
-    updateUserStakeLevel(player: any, minBet: any, maxBet: any): void;
-    formatApiBetInfo(payload: any): {
-        amount: any;
-        gameId: number;
-        gameRoundId: any;
-        choiceId: any;
-        freeBet: any;
-        clientSentTime: any;
-        metadata: {
-            mode: string;
-        };
-    };
-    handleSuccessBet(player: any, balance: any, roundId: any, bet: any): Promise<void>;
+    updateUserStakeLevel(player: any, minBet: number, maxBet: number): void;
+    formatApiBetInfo(payload: any): any;
+    handleSuccessBet(player: any, balance: any, roundId: number, bet: any): Promise<void>;
     handleFailedBet(player: any, notice: any, bet: any): void;
-    upsertBet(player: any, roundId: any, bet: any, rate: any): Promise<void>;
-    insertBetLog(player: any, roundId: any, bet: any, rate: any): Promise<void>;
-    decreaseBetTracks(playerName: any, bet: any): void;
-    adjustOwnBets(playerName: any, bet: any): void;
-    adjustTotalBets(player: any, bet: any, rate: any): void;
-    notifyPlacingBetResult(player: any, balance: any, bet: any, rate: any): void;
-    generatePlacingBetResult(player: any, balance: any, bet: any, rate: any): {
+    upsertBet(player: any, roundId: number, bet: any, rate: number): Promise<void>;
+    insertBetLog(player: any, roundId: number, bet: any, rate: number): Promise<void>;
+    decreaseBetTracks(playerName: string, bet: any): void;
+    adjustOwnBets(playerName: string, bet: any): void;
+    adjustTotalBets(player: any, bet: any, rate: number): void;
+    notifyPlacingBetResult(player: any, balance: any, bet: any, rate: number): void;
+    generatePlacingBetResult(
+        player: any,
+        balance: any,
+        bet: any,
+        rate: number
+    ): {
         ownBets: any;
-        endBet: any;
+        endBet: number;
         betChoice: any;
         freeBet: any;
         user: any;

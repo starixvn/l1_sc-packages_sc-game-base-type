@@ -36,7 +36,7 @@ export default class SettleGameRoundConsumer {
     endGame: any;
     roundsRepository: mongoose.Model;
     betsRepository: mongoose.Model;
-    gameManagementApiClient: import("latestDrawId,game-management-client").gameManagementClient;
+    gameManagementApiClient: import("game-management-client").gameManagementClient;
     settleRound(): Promise<void>;
     generateResult(): any;
     queryBets(roundId: any): any;
