@@ -10,7 +10,17 @@ export default class TableSettleGameRoundConsumer extends SettleGameRoundConsume
      * @param {mongoose.Model} dependencies.betsRepository
      * @param {mongoose.Model} dependencies.tempBetsRepository
      */
-    constructor({ definition, gameData, roundResultPublisher, userBetResultPublisher, endGame, roundsRepository, betsRepository, gameManagementApiClientFactory, tempBetsRepository, }: {
+    constructor({
+        definition,
+        gameData,
+        roundResultPublisher,
+        userBetResultPublisher,
+        endGame,
+        roundsRepository,
+        betsRepository,
+        gameManagementApiClientFactory,
+        tempBetsRepository,
+    }: {
         definition: TableGameDefinition;
         gameData: TableGameData;
         roundResultPublisher: RoundResultPublisher;
@@ -19,6 +29,7 @@ export default class TableSettleGameRoundConsumer extends SettleGameRoundConsume
         roundsRepository: mongoose.Model;
         betsRepository: mongoose.Model;
         tempBetsRepository: mongoose.Model;
+        gameManagementApiClientFactory: GameManagementApiClientFactory;
     });
     defaultWinningStatus: {
         win: boolean;
@@ -33,3 +44,4 @@ import TableGameDefinition from "./../table-game-definition";
 import TableGameData from "./../table-game-data";
 import { RoundResultPublisher } from "./../../core/event-publishers";
 import { UserBetResultPublisher } from "./../../core/event-publishers";
+import GameManagementApiClientFactory from "./../../core/game-management-api";
