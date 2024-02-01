@@ -47,4 +47,6 @@ class GameConfigs {
     gameId: number;
     displayName: string;
     type: number;
+    boostedChoices: string[];
+    originalOdds: Record<string, number>;
 }

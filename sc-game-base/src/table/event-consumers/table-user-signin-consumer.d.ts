@@ -5,8 +5,16 @@ export default class TableUserSignInConsumer extends UserSignInConsumer {
      * @param {TableUserSignInPublisher} userSignInPublisher
      * @param {Object} appConfigs
      */
-    constructor(definition: TableGameDefinition, gameData: TableGameData, userSignInPublisher: TableUserSignInPublisher, playGamePermissionValidator: any, appConfigs: any, gameManagementApiClientFactory: any);
+    constructor(
+        definition: TableGameDefinition,
+        gameData: TableGameData,
+        userSignInPublisher: TableUserSignInPublisher,
+        playGamePermissionValidator: any,
+        appConfigs: any,
+        gameManagementApiClientFactory: any
+    );
     definition: TableGameDefinition;
+    gameData: TableGameData;
 }
 import UserSignInConsumer from "./../../core/event-consumers/user-signin-consumer";
 import TableGameDefinition from "./../table-game-definition";
