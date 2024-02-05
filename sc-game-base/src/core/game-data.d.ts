@@ -49,4 +49,5 @@ class GameConfigs {
     type: number;
     boostedChoices: string[];
     originalOdds: Record<string, number>;
+    margin: Record<string, number>[];
 }
