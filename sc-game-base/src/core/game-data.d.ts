@@ -3,6 +3,8 @@ export default class GameData {
     remainingTime: any;
     totalBets: any;
     roundId: number;
+    pf: any;
+    result: any;
     delayStartTime: number;
     disabled: boolean;
     gameConfigs: GameConfigs;
