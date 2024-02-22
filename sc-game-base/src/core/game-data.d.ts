@@ -3,7 +3,7 @@ export default class GameData {
     remainingTime: any;
     totalBets: any;
     roundId: number;
-    pf: any;
+    pf: ProvablyFair;
     result: any;
     delayStartTime: number;
     disabled: boolean;
@@ -53,3 +53,12 @@ class GameConfigs {
     originalOdds: Record<string, number>;
     margin: Record<string, number>[];
 }
+
+export type ProvablyFair = {
+    serverSeed: string;
+    serverSeedHash: string;
+    clientSeeds: Record<string, string>[];
+    mergeClientSeed: string;
+    mergeSeed: string;
+    finalHash: string;
+};
