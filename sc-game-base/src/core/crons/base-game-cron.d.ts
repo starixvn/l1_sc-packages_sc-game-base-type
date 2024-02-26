@@ -13,6 +13,7 @@ export default class BaseGameCron {
      * @param {mongoose.Model} dependencies.resultsRepository
      * @param {GameManagementApiClientFactory} dependencies.gameManagementApiClientFactory
      * @param {RoundIdConsumer} dependencies.roundIdConsumer
+     * @param {ProvablyFairConsumer} dependencies.provablyFairConsumer
      */
     constructor({
         definition,
@@ -27,6 +28,8 @@ export default class BaseGameCron {
         appConfigs,
         gameManagementApiClientFactory,
         roundIdConsumer,
+        provablyFairConsumer,
+        unsettledRoundConsumer,
     }: {
         definition: GameDefinition;
         gameData: GameData;
@@ -40,6 +43,8 @@ export default class BaseGameCron {
         appConfigs: any;
         gameManagementApiClientFactory: GameManagementApiClientFactory;
         roundIdConsumer: RoundIdConsumer;
+        provablyFairConsumer: ProvablyFairConsumer;
+        unsettledRoundConsumer: UnsettledRoundConsumer;
     });
     definition: GameDefinition;
     gameData: GameData;
@@ -53,6 +58,8 @@ export default class BaseGameCron {
     appConfigs: any;
     gameManagementApiClient: import("sc-game-management-client").gameManagementClient;
     roundIdConsumer: RoundIdConsumer;
+    provablyFairConsumer: ProvablyFairConsumer;
+    unsettledRoundConsumer: UnsettledRoundConsumer;
     start(): Promise<void>;
     queryLastResult(): Promise<void>;
     initResultHash(): Promise<void>;
@@ -77,9 +84,12 @@ export default class BaseGameCron {
 import GameDefinition from "./../game-definition";
 import GameData from "./../game-data";
 import BaseBot from "./base-bot";
-import { SettleGameRoundConsumer } from "./../event-consumers";
-import { GameStatusPublisher } from "./../event-publishers";
-import { RunningRoundInfoPublisher } from "./../event-publishers";
-import { RoundResultConsumer } from "./../event-consumers";
-import { RoundIdConsumer } from "./../event-consumers";
+import { GameStatusPublisher, RunningRoundInfoPublisher } from "./../event-publishers";
+import {
+    RoundIdConsumer,
+    RoundResultConsumer,
+    SettleGameRoundConsumer,
+    ProvablyFairConsumer,
+    UnsettledRoundConsumer,
+} from "./../event-consumers";
 import GameManagementApiClientFactory from "../game-management-api";

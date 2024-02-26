@@ -5,22 +5,19 @@ export default class RoundResultConsumer {
      * @param {RoundResultPublisher} roundResultPublisher
      * @param {mongoose.Model} resultsRepository
      */
-    constructor(gameData: any, definition: any, roundResultPublisher: any, resultsRepository: any);
+    constructor(gameData: GameData, definition: GameDefinition, roundResultPublisher: RoundResultPublisher, resultsRepository: any);
     gameData: GameData;
     definition: GameDefinition;
     roundResultPublisher: RoundResultPublisher;
     resultsRepository: any;
-    generateResultAndPublishHash(lastResultRecord: any): Promise<void>;
+    generateServerSeedAndPublishHash(): Promise<void>;
     generateResult(): any;
-    buildResultHash(): {
-        roundId: any;
-        hashValue: any;
-        rawValue: string;
-    };
-    createResultRecord(): Promise<void>;
+    createResultRecord(serverSeed: string, serverSeedHash: string): Promise<void>;
     getNewDate(): Date;
+    generateFinalSeeds(pf: ProvablyFair): ProvablyFair;
 }
 
 import GameDefinition from "./../game-definition";
 import GameData from "./../game-data";
 import { RoundResultPublisher } from "./../event-publishers";
+import { ProvablyFair } from "./../game-data";
