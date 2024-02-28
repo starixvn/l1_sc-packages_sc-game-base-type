@@ -57,8 +57,13 @@ class GameConfigs {
 export type ProvablyFair = {
     serverSeed: string;
     serverSeedHash: string;
-    clientSeeds: Record<string, string>[];
+    clientSeeds: ClientSeed[];
     mergeClientSeed: string;
     mergeSeed: string;
     finalHash: string;
+};
+
+export type ClientSeed = {
+    name: string;
+    clientSeed: string;
 };
