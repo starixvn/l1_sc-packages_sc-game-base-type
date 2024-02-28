@@ -62,7 +62,7 @@ export default class BaseGameCron {
     unsettledRoundConsumer: UnsettledRoundConsumer;
     start(): Promise<void>;
     queryLastResult(): Promise<void>;
-    initResultHash(): Promise<void>;
+    isHashedResult(): any;
     startCron(): void;
     proceed(): Promise<void>;
     isStartingTime(remainingTime: number, durations: any): boolean;
