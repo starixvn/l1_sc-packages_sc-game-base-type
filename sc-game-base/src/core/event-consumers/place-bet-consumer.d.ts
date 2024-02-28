@@ -48,6 +48,20 @@ export default class PlaceBetConsumer {
         notice: any;
     }[];
     validateBetRequest(player: any, betChoice: any, amount: any, freeBet: any, roundId: any): boolean;
+    validateBetRequestParams(request: any): {
+        failure: boolean;
+        notice: any;
+    }[];
+    validateClientSeed(request: any): {
+        failure: boolean;
+        notice: any;
+    }[];
+    composeRequestParamsValidationCriteria(request: any): {
+        failure: boolean;
+        notice: any;
+    }[];
+    validateRequestParams(request: any, player: any): boolean;
+    verifyCriteria(criteria: any, player: any, betChoice: any): boolean;
     consume(player: any, payload: any): void;
     adjustBetTracks(playerName: any, bet: any): void;
 }

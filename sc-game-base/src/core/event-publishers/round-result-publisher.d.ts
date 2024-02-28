@@ -1,5 +1,6 @@
 export default class RoundResultPublisher extends BaseEventPublisher {
     publishRoundResult(roundResult: any): void;
+    getHashedResult(): any;
     publishServerSeedHash(): void;
     publishWinners(roundId: any, winningPlayers: any): void;
 }

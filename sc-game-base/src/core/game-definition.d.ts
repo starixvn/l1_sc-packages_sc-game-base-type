@@ -18,6 +18,7 @@ export default class GameDefinition {
             hedgeBetGroups?: any[];
             numberOfRoundHistory?: number;
             historyPageSize?: number;
+            provablyFair?: boolean;
         },
         generateResult: any,
         settle: any,
@@ -35,6 +36,7 @@ export default class GameDefinition {
     settle: any;
     generateRawResultForHash: any;
     hedgeBetGroups: any[];
+    provablyFair: boolean;
 }
 
 class Duration {
