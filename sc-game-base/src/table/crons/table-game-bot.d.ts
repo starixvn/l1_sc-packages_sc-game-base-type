@@ -38,18 +38,12 @@ export default class TableGameBot extends BaseBot {
     leaveRoom(): Promise<void>;
     getRemovalBotIds(totalRemoval: any): any;
     placeBets(botsToBet: any): Promise<void>;
-    calculateBet(bot: any): Promise<{
-        id: any;
-        choice: void;
-        amount: any;
-        currentBet: any;
-        bot: any;
-    }>;
+    calculateBet(bot: any): Promise<any>;
     convertAmountToChip(amount: any): any;
     updateBalanceAndPublishBetPayload(botId: any, choice: any, amount: any, balance: any): void;
     updateTotalBetsAndChips(choice: any, amount: any): void;
     updateBotInRoomData(bot: any, choice: any, amount: any, balance: any): void;
-    insertOrUpdateBet(bot: any, choice: any, amount: any, currentBet: any): Promise<void>;
+    insertOrUpdateBet(bot: any, choice: any, amount: any, currentBet: any): Promise<any>;
     generatePlaceBetPayload(
         playerId: any,
         choice: any,

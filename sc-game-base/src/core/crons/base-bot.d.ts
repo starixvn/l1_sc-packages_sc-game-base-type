@@ -26,7 +26,7 @@ export default class BaseBot {
     resetBot(bot: any): void;
     placeBet(bot: any): Promise<void>;
     getBetChoice(bot: any): void;
-    getMaxBet(bot: any, choice: any): void;
+    getMaxBet(bot: any, choice: any): number;
     getMinBet(): number;
     getTotalBetAmount(bet: any): number;
 }
