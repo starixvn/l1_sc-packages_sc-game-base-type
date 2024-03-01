@@ -5,9 +5,17 @@ export default class TableGameBot extends BaseBot {
      * @param {BaseEventPublisher} publisher
      * @param {mongoose.Model} tempBetsRepository
      */
-    constructor(definition: TableGameDefinition, gameData: TableGameData, publisher: BaseEventPublisher, gameManagementApiClientFactory: any, tempBetsRepository: mongoose.Model);
+    constructor(
+        definition: TableGameDefinition,
+        gameData: TableGameData,
+        publisher: BaseEventPublisher,
+        gameManagementApiClientFactory: GameManagementApiClientFactory,
+        tempBetsRepository: mongoose.Model,
+        provablyFairConsumer: ProvablyFairConsumer
+    );
     publisher: BaseEventPublisher;
     tempBetsRepository: mongoose.Model;
+    provablyFairConsumer: ProvablyFairConsumer;
     inOutValues: {
         in: number;
         out: number;
@@ -42,7 +50,12 @@ export default class TableGameBot extends BaseBot {
     updateTotalBetsAndChips(choice: any, amount: any): void;
     updateBotInRoomData(bot: any, choice: any, amount: any, balance: any): void;
     insertOrUpdateBet(bot: any, choice: any, amount: any, currentBet: any): Promise<void>;
-    generatePlaceBetPayload(playerId: any, choice: any, amount: any, balance: any): {
+    generatePlaceBetPayload(
+        playerId: any,
+        choice: any,
+        amount: any,
+        balance: any
+    ): {
         playerChip: {
             playerId: any;
             betChoice: any;
@@ -53,5 +66,7 @@ export default class TableGameBot extends BaseBot {
 }
 import BaseBot from "./../../core/crons/base-bot";
 import { BaseEventPublisher } from "./../../core/event-publishers";
+import { ProvablyFairConsumer } from "./../../core/event-consumers";
 import TableGameDefinition from "./../table-game-definition";
 import TableGameData from "./../table-game-data";
+import GameManagementApiClientFactory from "../../core/game-management-api";
