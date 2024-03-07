@@ -24,10 +24,10 @@ export default class TableGameBot extends BaseBot {
     removeBotAtTheTableRoundFrequency: number;
     minBotsAtTheTable: number;
     botsInRoom: {};
-    removeBots(botIds: any): Promise<void>;
-    removeBotsIfRatioChanged(totalRemoved: any): Promise<void>;
-    shouldAddBot(random: any): boolean;
-    shouldRemoveBot(random: any): boolean;
+    removeBots(botIds: string[]): Promise<void>;
+    removeBotsIfRatioChanged(totalRemoved: number): Promise<void>;
+    shouldAddBot(random: number): boolean;
+    shouldRemoveBot(random: number): boolean;
     getBotsToBet(): any[];
     getTicketsPerRound(): any;
     joinRoom(): Promise<void>;
@@ -36,27 +36,15 @@ export default class TableGameBot extends BaseBot {
     addToPlayersAndPublish(bot: any): void;
     resetInRoomTrackings(): Promise<void>;
     leaveRoom(): Promise<void>;
-    getRemovalBotIds(totalRemoval: any): any;
+    getRemovalBotIds(totalRemoval: number): any;
     placeBets(botsToBet: any): Promise<void>;
     calculateBet(bot: any): Promise<any>;
-    convertAmountToChip(amount: any): any;
-    updateBalanceAndPublishBetPayload(botId: any, choice: any, amount: any, balance: any): void;
-    updateTotalBetsAndChips(choice: any, amount: any): void;
-    updateBotInRoomData(bot: any, choice: any, amount: any, balance: any): void;
-    insertOrUpdateBet(bot: any, choice: any, amount: any, currentBet: any): Promise<any>;
-    generatePlaceBetPayload(
-        playerId: any,
-        choice: any,
-        amount: any,
-        balance: any
-    ): {
-        playerChip: {
-            playerId: any;
-            betChoice: any;
-            amount: any;
-            red: any;
-        };
-    };
+    convertAmountToChip(amount: number): any;
+    updateBalanceAndPublishBetPayload(botId: string, choice: string, amount: number, balance: number): void;
+    updateTotalBetsAndChips(choice: string, amount: number): void;
+    updateBotInRoomData(bot: any, choice: string, amount: number, balance: number): void;
+    insertOrUpdateBet(bot: any, choice: string, amount: number, currentBet: any): Promise<any>;
+    generatePlaceBetPayload(playerId: string, choice: string, amount: number, balance: number): any;
 }
 import BaseBot from "./../../core/crons/base-bot";
 import { BaseEventPublisher } from "./../../core/event-publishers";
