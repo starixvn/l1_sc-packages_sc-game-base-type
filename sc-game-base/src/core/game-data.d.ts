@@ -52,6 +52,7 @@ class GameConfigs {
     boostedChoices: string[];
     originalOdds: Record<string, number>;
     margin: Record<string, number>[];
+    maxWinPerRound: number;
 }
 
 export type ProvablyFair = {
