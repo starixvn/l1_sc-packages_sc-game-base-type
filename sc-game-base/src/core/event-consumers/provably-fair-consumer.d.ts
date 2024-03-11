@@ -5,8 +5,7 @@ export default class ProvablyFairConsumer {
      * @param {mongoose.Model} betsRepository
      * @param {mongoose.Model} tempBetsRepository
      */
-    constructor(gameData: GameData, maxCombinedClientSeeds: any, betsRepository: mongoose.Model, tempBetsRepository: mongoose.Model);
-    MaxCombinedClientSeeds: number;
+    constructor(gameData: GameData, betsRepository: mongoose.Model, tempBetsRepository: mongoose.Model);
     ClientSeedRange: {
         min: number;
         max: number;
@@ -19,11 +18,10 @@ export default class ProvablyFairConsumer {
     setServerSeed(serverSeed: string): void;
     setServerSeedHash(serverSeedHash: string): void;
     reset(): void;
-    addBets(...bets: any[]): void;
-    updateClientSeedFromBets(): Promise<void>;
+    updateClientSeedFromDatabase(): Promise<void>;
     updateClientSeeds(clientSeeds: string): void;
     sortByTime(bets: any): any[];
-    getFirstBets(roundId: any): Promise<any>;
+    getAllBets(roundId: any): Promise<any>;
 }
 
 import GameData from "./../game-data";
