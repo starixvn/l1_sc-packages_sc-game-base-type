@@ -68,3 +68,8 @@ export type ClientSeed = {
     name: string;
     clientSeed: string;
 };
+
+export type ProvablyFairConfig = {
+    limitClientSeeds: boolean;
+    maxCombinedClientSeeds: number;
+};

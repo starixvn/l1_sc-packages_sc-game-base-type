@@ -14,14 +14,15 @@ export default class ProvablyFairConsumer {
     gameData: GameData;
     betsRepository: mongoose.Model;
     tempBetsRepository: mongoose.Model;
-    addClientSeed({ name, clientSeed }: { name: string; clientSeed: string }): void;
     setServerSeed(serverSeed: string): void;
     setServerSeedHash(serverSeedHash: string): void;
+    setClientSeeds(clientSeeds: any): void;
+    setClientSeedsFromBets(bets: any[]): void;
     reset(): void;
-    updateClientSeedFromDatabase(): Promise<void>;
-    updateClientSeeds(clientSeeds: string): void;
+    updateClientSeedsFromBets(): Promise<void>;
     sortByTime(bets: any): any[];
-    getAllBets(roundId: any): Promise<any>;
+    getBetsFromDatabase(): Promise<any>;
+    getBetFilter(): any;
 }
 
 import GameData from "./../game-data";
