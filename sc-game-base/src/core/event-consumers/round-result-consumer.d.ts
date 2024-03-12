@@ -26,6 +26,7 @@ export default class RoundResultConsumer {
     generateFinalSeeds(): ProvablyFair;
     getResultFilter(): any;
     generateServerSeed(): any;
+    getDataForGenerateResult(): any;
 }
 
 import GameDefinition from "./../game-definition";
