@@ -12,7 +12,19 @@ export default class BaseSocketRouter {
      * @param {logger} dependencies.logService
      * @param {PlayGamePermissionValidator} dependencies.playGamePermissionValidator
      */
-    constructor({ definition, gameData, userSignInConsumer, inGameConsumer, placeBetConsumer, userDisconnectConsumer, userSignInPublisher, historyQuery, logService, playGamePermissionValidator, }: {
+    constructor({
+        definition,
+        gameData,
+        userSignInConsumer,
+        inGameConsumer,
+        placeBetConsumer,
+        userDisconnectConsumer,
+        userSignInPublisher,
+        historyQuery,
+        logService,
+        playGamePermissionValidator,
+        roundQuery,
+    }: {
         definition: GameDefinition;
         gameData: GameData;
         userSignInConsumer: UserSignInConsumer;
@@ -23,6 +35,7 @@ export default class BaseSocketRouter {
         historyQuery: HistoryQuery;
         logService: logger;
         playGamePermissionValidator: PlayGamePermissionValidator;
+        roundQuery: RoundQuery;
     });
     forbiddenCode: number;
     waringCodes: number[];
@@ -36,17 +49,23 @@ export default class BaseSocketRouter {
     historyQuery: HistoryQuery;
     logService: logger;
     playGamePermissionValidator: PlayGamePermissionValidator;
+    roundQuery: RoundQuery;
     /**
      * @param {Socket} socketClient
      */
     init(socketClient: Socket): void;
-    socketClient: Socket<import("socket.io/dist/typed-events").DefaultEventsMap, import("socket.io/dist/typed-events").DefaultEventsMap, import("socket.io/dist/typed-events").DefaultEventsMap, any>;
+    socketClient: Socket<
+        import("socket.io/dist/typed-events").DefaultEventsMap,
+        import("socket.io/dist/typed-events").DefaultEventsMap,
+        import("socket.io/dist/typed-events").DefaultEventsMap,
+        any
+    >;
     handlePlaceBet(payload: any): void;
     handleSignIn(payload: any): Promise<void>;
     handleInGame(): Promise<void>;
     handleGetHistory(payload: any): Promise<void>;
     handleDisconnect(): void;
-    verify(payload: any): boolean;
+    verify(payload?: any): boolean;
     handleError(payload: any, e: any): void;
 }
 import { UserSignInConsumer } from "./../event-consumers";
@@ -54,6 +73,6 @@ import { InGameConsumer } from "./../event-consumers";
 import { PlaceBetConsumer } from "./../event-consumers";
 import { UserDisconnectConsumer } from "./../event-consumers";
 import { UserSignInPublisher } from "./../event-publishers";
-import { HistoryQuery } from "./../query-apis";
+import { HistoryQuery, RoundQuery } from "./../query-apis";
 import { PlayGamePermissionValidator } from "../validators";
 import { Socket } from "socket.io";
