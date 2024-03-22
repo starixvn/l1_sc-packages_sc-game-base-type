@@ -1,0 +1,19 @@
+{
+  "name": "@types/sc-base-database",
+  "version": "1.0.0-beta.0",
+  "description": "TypeScript definitions for sc-base-database",
+  "scripts": {
+    "reg": "npm set registry http://npm.lumigame.com",
+    "pub": "npm publish --registry http://npm.lumigame.com",
+    "betaver": "npm version prerelease --preid beta",
+    "pubbeta": "npm publish --registry http://npm.lumigame.com --tag beta"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@git3.nexdev.net:l1/sc-packages/sc-game-base-type",
+    "directory": "sc-base-database"
+  },
+  "author": "",
+  "license": "ISC",
+  "types": "./index.d.ts"
+}
