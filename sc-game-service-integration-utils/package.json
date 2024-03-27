@@ -1,6 +1,6 @@
 {
   "name": "@types/sc-game-service-integration-utils",
-  "version": "1.0.0-beta.0",
+  "version": "1.0.0-beta.1",
   "description": "TypeScript definitions for sc-game-service-integration-utils",
   "scripts": {
     "reg": "npm set registry http://npm.lumigame.com",
