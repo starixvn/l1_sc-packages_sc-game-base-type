@@ -30,6 +30,7 @@ export default class UnsettledRoundConsumer {
   provablyFairConsumer: ProvablyFairConsumer;
   gameManagementApiClient: import("sc-game-management-client").gameManagementClient;
   proceed(): Promise<void>;
+  loadGameConfigs(): Promise<void>;
   proceedUnsettledBets(unsettledBets: any): Promise<void>;
   generateResult(unsettledBets: any): Promise<void>;
   getUnsettledBets(): Promise<any>;
