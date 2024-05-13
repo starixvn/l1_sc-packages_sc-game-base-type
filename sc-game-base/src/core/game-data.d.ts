@@ -1,29 +1,33 @@
 export default class GameData {
     constructor(remainingTime: any);
     remainingTime: any;
-    totalBets: {};
+    totalBets: any;
     roundId: number;
+    pf: ProvablyFair;
+    result: any;
     delayStartTime: number;
     disabled: boolean;
     gameConfigs: GameConfigs;
-    realPlayers: {};
+    realPlayers: any;
     ingame: { [name: string]: any };
-    admins: {};
-    settlementResultFromAdmin: {};
-    umMessages: {};
-    exchangeRates: {};
+    admins: any;
+    settlementResultFromAdmin: any;
+    umMessages: any;
+    exchangeRates: any;
     currencyGroupGames: any[];
     currencies: any[];
     currencyGroups: any[];
     partnerGameSiteExclusions: any[];
-    resultHash: {};
+    resultHash: any;
+    winningPlayers: any;
+    lastResultRecord?: any;
 }
 
-export class GameConfigs {
+class GameConfigs {
     bot_maxbet: number;
     bot_minbet: number;
     botenabled: boolean;
-    choices_maxbet: { [choice: string]: number };
+    choices_maxbet: Record<string, number>;
     delayStartTime: number;
     enableFreeBet: boolean;
     enabled: boolean;
@@ -31,6 +35,41 @@ export class GameConfigs {
     maxbet: number;
     maxbot: number;
     minbet: number;
-    odds: { [name: string]: number };
+    odds: Record<string, number>;
     randomMode: number;
+    name: string;
+    disabledround: number;
+    slotsConfig: Record<string, any>;
+    siteExclusions: string[];
+    smartBotEnabled: boolean;
+    smartBotGroupRatio: number;
+    exchangeReload: boolean;
+    cascadingSlotsConfig: Record<string, any>;
+    slotRNGConfig: Record<string, any>;
+    gameId: number;
+    displayName: string;
+    type: number;
+    boostedChoices: string[];
+    originalOdds: Record<string, number>;
+    margin: Record<string, number>[];
+    maxWinPerRound: number;
 }
+
+export type ProvablyFair = {
+    serverSeed: string;
+    serverSeedHash: string;
+    clientSeeds: ClientSeed[];
+    mergeClientSeed: string;
+    mergeSeed: string;
+    finalHash: string;
+};
+
+export type ClientSeed = {
+    name: string;
+    clientSeed: string;
+};
+
+export type ProvablyFairConfig = {
+    limitClientSeeds: boolean;
+    maxCombinedClientSeeds: number;
+};

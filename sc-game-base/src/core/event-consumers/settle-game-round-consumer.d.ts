@@ -10,7 +10,16 @@ export default class SettleGameRoundConsumer {
      * @param {mongoose.Model} dependencies.betsRepository
      * @param {GameManagementApiClientFactory} dependencies.gameManagementApiClientFactory
      */
-    constructor({ definition, gameData, roundResultPublisher, userBetResultPublisher, endGame, roundsRepository, betsRepository, gameManagementApiClientFactory, }: {
+    constructor({
+        definition,
+        gameData,
+        roundResultPublisher,
+        userBetResultPublisher,
+        endGame,
+        roundsRepository,
+        betsRepository,
+        gameManagementApiClientFactory,
+    }: {
         definition: GameDefinition;
         gameData: GameData;
         roundResultPublisher: RoundResultPublisher;
@@ -27,30 +36,39 @@ export default class SettleGameRoundConsumer {
     endGame: any;
     roundsRepository: mongoose.Model;
     betsRepository: mongoose.Model;
-    gameManagementApiClient: import("sc-game-management-client").gameManagementClient;
+    gameManagementApiClient: import("game-management-client").gameManagementClient;
     settleRound(): Promise<void>;
     generateResult(): any;
     queryBets(roundId: any): any;
-    settleBets({ settlementResult, roundId, time }: {
-        settlementResult: any;
-        roundId: any;
-        time: any;
-    }): Promise<void>;
-    calculateBetResult(settlementResult: any, bet: any, odds: any): {
+    settleBets({ settlementResult, roundId, time }: { settlementResult: any; roundId: any; time: any }): Promise<void>;
+    calculateBetResult(
+        settlementResult: any,
+        bet: any,
+        odds: Record<string, number>
+    ): {
         totalBetAmount: number;
         totalWin: number;
         netWin: number;
         totalLost: number;
-        winningByChoices: {};
+        winningByChoices: any;
     };
     captureBetResult(uid: any, betResult: any, rate: any): void;
-    collectRoundResult(result: any, settlementResult: any, roundId: any): {
+    collectRoundResult(
+        result: any,
+        settlementResult: any,
+        roundId: number
+    ): {
         result: any;
         settlementResult: any;
-        roundId: any;
+        roundId: number;
     };
-    callEndGame(bet: any, roundId: any, time: any, betResult: any): Promise<void>;
-    formatEndGameInfo(bet: any, roundId: any, time: any, betResult: any): {
+    callEndGame(bet: any, roundId: number, time: any, betResult: any): Promise<void>;
+    formatEndGameInfo(
+        bet: any,
+        roundId: any,
+        time: any,
+        betResult: any
+    ): {
         gameInfo: {
             gameId: number;
             gameRoundId: any;

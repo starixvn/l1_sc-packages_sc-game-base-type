@@ -8,4 +8,20 @@ import PlaceBetConsumer from "./place-bet-consumer";
 import SettleGameRoundConsumer from "./settle-game-round-consumer";
 import RoundResultConsumer from "./round-result-consumer";
 import RoundIdConsumer from "./round-id-consumer";
-export { AdminAuthenticationConsumer, AdminDisconnectConsumer, AdminMonitorConsumer, UserSignInConsumer, UserDisconnectConsumer, InGameConsumer, PlaceBetConsumer, SettleGameRoundConsumer, RoundResultConsumer, RoundIdConsumer };
+import ProvablyFairConsumer from "./provably-fair-consumer";
+import UnsettledRoundConsumer from "./unsettled-round-consumer";
+
+export {
+    AdminAuthenticationConsumer,
+    AdminDisconnectConsumer,
+    AdminMonitorConsumer,
+    UserSignInConsumer,
+    UserDisconnectConsumer,
+    InGameConsumer,
+    PlaceBetConsumer,
+    SettleGameRoundConsumer,
+    RoundResultConsumer,
+    RoundIdConsumer,
+    ProvablyFairConsumer,
+    UnsettledRoundConsumer,
+};

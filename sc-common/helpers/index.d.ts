@@ -1,14 +1,6 @@
-declare const noticeHelper: {
-    cannotPlaceBet: string;
-    placeBetNextRound: string;
-    minBet: string;
-    maxBet: string;
-    notEnoughMoney: string;
-    maxBetForChoice: string;
-    invalidBet: string;
-    youOrOtherLoggedInToThisAccount: string;
-    notEnoughScoin: string;
-    disallowHedgeBet: string;
-};
+import noticeHelper from "./notice-helper";
+import * as numberHelper from "./number-helper";
+import * as arrayHelper from "./array-helper";
+import * as configHelper from "./config-helper";
 
-export default { noticeHelper };
+export { noticeHelper, numberHelper, arrayHelper, configHelper };

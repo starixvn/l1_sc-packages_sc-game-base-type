@@ -1,5 +1,5 @@
 export default class TableGameData extends GameData {
-    chips: {};
-    players: {};
+    chips: any;
+    players: any;
 }
 import GameData from "./../core/game-data";
