@@ -4,7 +4,11 @@ export default class PlaceBetConsumer {
      * @param {GameData} gameData
      * @param {BaseEventPublisher} publisher
      */
-    constructor(definition: GameDefinition, gameData: GameData, publisher: BaseEventPublisher);
+    constructor(
+        definition: GameDefinition,
+        gameData: GameData,
+        publisher: BaseEventPublisher
+    );
     DisplayMode: {
         Landscape: string;
         Portrait: string;
@@ -14,57 +18,64 @@ export default class PlaceBetConsumer {
     publisher: BaseEventPublisher;
     composeValidationCriteria(
         player: any,
-        betChoice: any,
-        amount: any,
-        freeBet: any,
-        roundId: any
+        betChoice: string,
+        amount: number,
+        freeBet: boolean,
+        roundId: number
     ): {
         failure: boolean;
-        notice: any;
+        notice: string;
     }[];
     composeBettingTimeValidationCriteria(roundId: number): {
         failure: boolean;
-        notice: any;
+        notice: string;
     }[];
     composeBetAmountValidationCriteria(
         player: any,
-        betChoice: any,
-        amount: any,
-        freeBet: any
+        betChoice: string,
+        amount: number,
+        freeBet: boolean
     ): {
         failure: boolean;
-        notice: any;
+        notice: string;
     }[];
-    getNoticeObj(errorCode: any, extraData?: any): any;
-    composeBetChoiceValidationCriteria(betChoice: any): {
+    getNoticeObj(errorCode: string, extraData?: any): any;
+    composeBetChoiceValidationCriteria(betChoice: string): {
         failure: boolean;
-        notice: any;
+        notice: string;
     }[];
     composeHedgeBetValidationCriteria(
-        betChoice: any,
+        betChoice: string,
         player: any
     ): {
         failure: boolean;
-        notice: any;
+        notice: string;
     }[];
-    validateBetRequest(player: any, betChoice: any, amount: any, freeBet: any, roundId: any): boolean;
+    validateBetRequest(
+        player: any,
+        betChoice: string,
+        amount: number,
+        freeBet: boolean,
+        roundId: number
+    ): boolean;
     validateBetRequestParams(request: any): {
         failure: boolean;
-        notice: any;
+        notice: string;
     }[];
     validateClientSeed(request: any): {
         failure: boolean;
-        notice: any;
+        notice: string;
     }[];
     composeRequestParamsValidationCriteria(request: any): {
         failure: boolean;
-        notice: any;
+        notice: string;
     }[];
     validateRequestParams(request: any, player: any): boolean;
-    verifyCriteria(criteria: any, player: any, betChoice: any): boolean;
+    verifyCriteria(criteria: any, player: any, betChoice: string): boolean;
     consume(player: any, payload: any): void;
-    adjustBetTracks(playerName: any, bet: any): void;
+    adjustBetTracks(playerName: string, bet: any): void;
 }
-import GameDefinition from "./../game-definition";
-import GameData from "./../game-data";
 import { BaseEventPublisher } from "./../event-publishers";
+import GameData from "./../game-data";
+import GameDefinition from "./../game-definition";
+

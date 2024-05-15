@@ -5,7 +5,12 @@ export default class ProvablyFairConsumer {
      * @param {mongoose.Model} betsRepository
      * @param {mongoose.Model} tempBetsRepository
      */
-    constructor(gameData: GameData, betsRepository: mongoose.Model, tempBetsRepository: mongoose.Model);
+    constructor(
+        gameData: GameData,
+        betsRepository: mongoose.Model,
+        tempBetsRepository: mongoose.Model,
+        maxCombinedClientSeeds: number
+    );
     ClientSeedRange: {
         min: number;
         max: number;
@@ -22,7 +27,10 @@ export default class ProvablyFairConsumer {
     updateClientSeedsFromBets(): Promise<void>;
     sortByTime(bets: any): any[];
     getBetsFromDatabase(): Promise<any>;
-    getBetFilter(): any;
+    getBetFilter(): { roundId: number };
 }
 
+import mongoose from "mongoose";
+
 import GameData from "./../game-data";
+
