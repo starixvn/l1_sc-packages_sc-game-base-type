@@ -36,6 +36,10 @@ type Duration = {
     lockingBet: number;
 };
 
+export type TableGameSettings = GameSettings & {
+    botSettings?: BotSettings;
+};
+
 export type GameSettings = {
     id: number;
     name: string;
@@ -46,4 +50,11 @@ export type GameSettings = {
     numberOfRoundHistory?: number;
     historyPageSize?: number;
     provablyFair?: boolean;
+};
+
+export type BotSettings = {
+    ratio: {
+        [key: string]: number;
+    };
+    [key: string]: string[] | { [key: string]: number };
 };

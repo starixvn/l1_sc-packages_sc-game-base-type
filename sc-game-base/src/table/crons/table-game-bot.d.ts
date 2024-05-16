@@ -24,6 +24,13 @@ export default class TableGameBot extends BaseBot {
     removeBotAtTheTableRoundFrequency: number;
     minBotsAtTheTable: number;
     botsInRoom: {};
+    hedgeBetGroups: string[][];
+    betOptions: string[];
+    smallTicketRatio: number;
+    smallTickets: number;
+    allBets: Record<string, number>;
+    botChips: number[];
+    botSettings: BotSettings;
     removeBots(botIds: string[]): Promise<void>;
     removeBotsIfRatioChanged(totalRemoved: number): Promise<void>;
     shouldAddBot(random: number): boolean;
@@ -45,10 +52,13 @@ export default class TableGameBot extends BaseBot {
     updateBotInRoomData(bot: any, choice: string, amount: number, balance: number): void;
     insertOrUpdateBet(bot: any, choice: string, amount: number, currentBet: any): Promise<any>;
     generatePlaceBetPayload(playerId: string, choice: string, amount: number, balance: number): any;
+    isDuringBetTime(): boolean;
 }
-import BaseBot from "./../../core/crons/base-bot";
-import { BaseEventPublisher } from "./../../core/event-publishers";
-import { ProvablyFairConsumer } from "./../../core/event-consumers";
-import TableGameDefinition from "./../table-game-definition";
-import TableGameData from "./../table-game-data";
+import { BotSettings } from "../../core/game-definition";
 import GameManagementApiClientFactory from "../../core/game-management-api";
+import BaseBot from "./../../core/crons/base-bot";
+import { ProvablyFairConsumer } from "./../../core/event-consumers";
+import { BaseEventPublisher } from "./../../core/event-publishers";
+import TableGameData from "./../table-game-data";
+import TableGameDefinition from "./../table-game-definition";
+

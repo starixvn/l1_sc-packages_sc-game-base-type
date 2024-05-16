@@ -4,7 +4,11 @@ export default class BaseBot {
      * @param {GameData} gameData
      * @param {GameManagementApiClientFactory} gameManagementApiClientFactory
      */
-    constructor(definition: GameDefinition, gameData: GameData, gameManagementApiClientFactory: GameManagementApiClientFactory);
+    constructor(
+        definition: GameDefinition,
+        gameData: GameData,
+        gameManagementApiClientFactory: GameManagementApiClientFactory
+    );
     definition: GameDefinition;
     gameData: GameData;
     gameManagementApiClient: import("sc-game-management-client").gameManagementClient;
@@ -17,6 +21,13 @@ export default class BaseBot {
     chance: any;
     botRate: number;
     totalBots: number;
+    hedgeBetGroups: string[][];
+    betOptions: string[];
+    smallTicketRatio: number;
+    smallTickets: number;
+    allBets: Record<string, number>;
+    botChips: number[];
+    botSettings: BotSettings;
     reset(): Promise<void>;
     run(): Promise<void>;
     removeAllBots(): Promise<void>;
@@ -29,7 +40,9 @@ export default class BaseBot {
     getMaxBet(bot: any, choice: string): number;
     getMinBet(): number;
     getTotalBetAmount(bet: any): number;
+    isDuringBetTime(): boolean;
 }
-import GameDefinition from "./../game-definition";
-import GameData from "./../game-data";
 import GameManagementApiClientFactory from "../game-management-api";
+import GameData from "./../game-data";
+import GameDefinition, { BotSettings } from "./../game-definition";
+
