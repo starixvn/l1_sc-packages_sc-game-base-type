@@ -14,7 +14,7 @@
         "directory": "sc-game-base"
     },
     "devDependencies": {
-        "sc-game-base": "^5.2.1-beta.2",
+        "sc-game-base": "^5.2.1-beta.3",
         "sc-game-management-client": "^0.1.0"
     },
     "author": "",
