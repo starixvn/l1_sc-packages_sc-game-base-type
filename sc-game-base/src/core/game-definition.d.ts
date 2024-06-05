@@ -9,39 +9,52 @@ export default class GameDefinition {
             hedgeBetGroups,
             numberOfRoundHistory,
             historyPageSize,
-        }: {
-            id?: number;
-            name?: string;
-            durations?: any;
-            choices?: any[];
-            choicesMapper?: any;
-            hedgeBetGroups?: any[];
-            numberOfRoundHistory?: number;
-            historyPageSize?: number;
-            provablyFair?: boolean;
-        },
-        generateResult: any,
-        settle: any,
-        generateRawResultForHash: any
+            provablyFair,
+        }: GameSettings,
+        generateResult: Function,
+        settle: Function,
+        generateRawResultForHash: Function
     );
     id: number;
     name: string;
     configName: string;
     durations: Duration;
     choices: any[];
-    choicesMapper: any;
+    choicesMapper: Object;
     numberOfRoundHistory: number;
     historyPageSize: number;
-    generateResult: any;
-    settle: any;
-    generateRawResultForHash: any;
-    hedgeBetGroups: any[];
+    generateResult: Function;
+    settle: Function;
+    generateRawResultForHash: Function;
+    hedgeBetGroups: string[][];
     provablyFair: boolean;
 }
 
-class Duration {
+type Duration = {
     wholeRound: number;
     placingBets: number;
     lockingBet: number;
-    showingResult: number;
-}
+};
+
+export type TableGameSettings = GameSettings & {
+    botSettings?: BotSettings;
+};
+
+export type GameSettings = {
+    id: number;
+    name: string;
+    durations: Duration;
+    choices: any[];
+    choicesMapper: Object;
+    hedgeBetGroups: string[][];
+    numberOfRoundHistory?: number;
+    historyPageSize?: number;
+    provablyFair?: boolean;
+};
+
+export type BotSettings = {
+    ratio: {
+        [key: string]: number;
+    };
+    [key: string]: string[] | { [key: string]: number };
+};

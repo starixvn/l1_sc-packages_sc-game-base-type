@@ -1,6 +1,14 @@
+import {
+    Currencies,
+    CurrencyGroupGames,
+    CurrencyGroups,
+    ExchangeRates,
+    OperatorConfig,
+} from "sc-game-management-client";
+
 export default class GameData {
-    constructor(remainingTime: any);
-    remainingTime: any;
+    constructor(remainingTime: number);
+    remainingTime: number;
     totalBets: any;
     roundId: number;
     pf: ProvablyFair;
@@ -12,18 +20,18 @@ export default class GameData {
     ingame: { [name: string]: any };
     admins: any;
     settlementResultFromAdmin: any;
-    umMessages: any;
-    exchangeRates: any;
-    currencyGroupGames: any[];
-    currencies: any[];
-    currencyGroups: any[];
-    partnerGameSiteExclusions: any[];
-    resultHash: any;
-    winningPlayers: any;
+    umMessages: Notification;
+    exchangeRates: ExchangeRates;
+    currencyGroupGames: CurrencyGroupGames[];
+    currencies: Currencies[];
+    currencyGroups: CurrencyGroups[];
+    partnerGameSiteExclusions: OperatorConfig[];
+    resultHash: ResultHash;
+    winningPlayers: Record<string, WinningStatus>;
     lastResultRecord?: any;
 }
 
-class GameConfigs {
+type GameConfigs = {
     bot_maxbet: number;
     bot_minbet: number;
     botenabled: boolean;
@@ -53,7 +61,7 @@ class GameConfigs {
     originalOdds: Record<string, number>;
     margin: Record<string, number>[];
     maxWinPerRound: number;
-}
+};
 
 export type ProvablyFair = {
     serverSeed: string;
@@ -72,4 +80,25 @@ export type ClientSeed = {
 export type ProvablyFairConfig = {
     limitClientSeeds: boolean;
     maxCombinedClientSeeds: number;
+};
+
+export type Notification = {
+    time: Date;
+    message: string;
+    displayKind: number;
+    gameName: string;
+    messages: object;
+};
+
+export type ResultHash = {
+    rawValue?: string;
+    extraInfos?: any;
+    hashValue?: string;
+};
+
+export type WinningStatus = {
+    rate: number;
+    win: boolean;
+    bet: number;
+    winningByChoices: Record<string, number>;
 };

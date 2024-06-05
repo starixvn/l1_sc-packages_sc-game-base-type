@@ -3,6 +3,7 @@ export default class TableGameBot extends BaseBot {
      * @param {TableGameDefinition} definition
      * @param {TableGameData} gameData
      * @param {BaseEventPublisher} publisher
+     * @param {GameManagementApiClientFactory} gameManagementApiClientFactory
      * @param {mongoose.Model} tempBetsRepository
      */
     constructor(
@@ -11,11 +12,9 @@ export default class TableGameBot extends BaseBot {
         publisher: BaseEventPublisher,
         gameManagementApiClientFactory: GameManagementApiClientFactory,
         tempBetsRepository: mongoose.Model,
-        provablyFairConsumer: ProvablyFairConsumer
     );
     publisher: BaseEventPublisher;
     tempBetsRepository: mongoose.Model;
-    provablyFairConsumer: ProvablyFairConsumer;
     inOutValues: {
         in: number;
         out: number;
@@ -45,10 +44,11 @@ export default class TableGameBot extends BaseBot {
     updateBotInRoomData(bot: any, choice: string, amount: number, balance: number): void;
     insertOrUpdateBet(bot: any, choice: string, amount: number, currentBet: any): Promise<any>;
     generatePlaceBetPayload(playerId: string, choice: string, amount: number, balance: number): any;
+    isDuringBetTime(): boolean;
 }
+import GameManagementApiClientFactory from "../../core/game-management-api";
 import BaseBot from "./../../core/crons/base-bot";
 import { BaseEventPublisher } from "./../../core/event-publishers";
-import { ProvablyFairConsumer } from "./../../core/event-consumers";
-import TableGameDefinition from "./../table-game-definition";
 import TableGameData from "./../table-game-data";
-import GameManagementApiClientFactory from "../../core/game-management-api";
+import TableGameDefinition from "./../table-game-definition";
+
