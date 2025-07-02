@@ -10,7 +10,7 @@ declare const sentryLogger: {
         sentryRelease: string;
         logIdentifier: string;
     }) => void;
-    log: (message: any, level: string) => void;
+    log: (message: any, level?: string) => void;
     logWarning: (message) => void;
     logCritical: (message) => void;
     logError: (message) => void;
