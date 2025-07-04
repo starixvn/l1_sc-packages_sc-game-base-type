@@ -53,7 +53,7 @@ export default class SettleGameRoundConsumer {
     winningByChoices: any;
   };
   captureBetResult(uid: any, betResult: any, rate: any): void;
-  callEndGame(bet: any, roundId: number, time: any, betResult: any): Promise<void>;
+  callEndGame(bet: any, roundId: number, time: any, betResult: any, metaData: any): Promise<void>;
   formatEndGameInfo(
     bet: any,
     roundId: any,

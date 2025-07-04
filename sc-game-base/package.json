@@ -1,6 +1,6 @@
 {
     "name": "@types/sc-game-base",
-    "version": "1.0.0",
+    "version": "1.0.0-beta.8",
     "description": "TypeScript definitions for sc-game-base",
     "scripts": {
         "reg": "npm set registry http://npm.lumigame.com",
@@ -14,7 +14,7 @@
         "directory": "sc-game-base"
     },
     "devDependencies": {
-        "sc-game-base": "^5.2.2",
+        "sc-game-base": "^5.4.0-beta.1",
         "sc-game-management-client": "^0.1.0"
     },
     "author": "",
