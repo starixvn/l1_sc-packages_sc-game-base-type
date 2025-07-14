@@ -60,7 +60,7 @@ export default class SettleGameRoundConsumer {
     totalLost: number;
     winningByChoices: any;
   };
-  createMetadata(bet: any, settlementResult: any): any;
+  createMetadata(bet: any, settlementResult: any, result: any): any;
   captureBetResult(uid: string, betResult: any, rate: number): void;
   collectRoundResult(result: any, settlementResult: any, roundId: number): any;
   callEndGame(
