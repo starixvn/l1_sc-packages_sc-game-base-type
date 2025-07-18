@@ -22,6 +22,7 @@ export default class BaseBot {
     botRate: number;
     totalBots: number;
     reset(): Promise<void>;
+    updateBotList(): Promise<void>;
     run(): Promise<void>;
     removeAllBots(): Promise<void>;
     removeBot(botId: string): void;

@@ -1,6 +1,6 @@
 {
   "name": "@types/sc-common",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "TypeScript definitions for sc-common",
   "scripts": {
     "reg": "npm set registry http://npm.lumigame.com",

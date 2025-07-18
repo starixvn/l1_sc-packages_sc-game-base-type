@@ -36,11 +36,19 @@ export default class SettleGameRoundConsumer {
   endGame: any;
   roundsRepository: mongoose.Model;
   betsRepository: mongoose.Model;
-  gameManagementApiClient: import("game-management-client").gameManagementClient;
+  gameManagementApiClient: import("sc-game-management-client").gameManagementClient;
   settleRound(): Promise<void>;
   generateResult(): any;
-  queryBets(roundId: any): any;
-  settleBets({ settlementResult, roundId, time }: { settlementResult: any; roundId: any; time: any }): Promise<void>;
+  queryBets(roundId: number): any;
+  settleBets({
+    settlementResult,
+    roundId,
+    time,
+  }: {
+    settlementResult: any;
+    roundId: number;
+    time: Date;
+  }): Promise<void>;
   calculateBetResult(
     settlementResult: any,
     bet: any,
@@ -52,12 +60,20 @@ export default class SettleGameRoundConsumer {
     totalLost: number;
     winningByChoices: any;
   };
-  captureBetResult(uid: any, betResult: any, rate: any): void;
-  callEndGame(bet: any, roundId: number, time: any, betResult: any): Promise<void>;
+  createMetadata(metaData: any): any;
+  captureBetResult(uid: string, betResult: any, rate: number): void;
+  collectRoundResult(result: any, settlementResult: any, roundId: number): any;
+  callEndGame(
+    bet: any,
+    roundId: number,
+    time: Date,
+    betResult: any,
+    metaData: any
+  ): Promise<void>;
   formatEndGameInfo(
     bet: any,
-    roundId: any,
-    time: any,
+    roundId: number,
+    time: Date,
     betResult: any
   ): {
     gameInfo: {

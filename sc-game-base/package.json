@@ -1,23 +1,23 @@
 {
-    "name": "@types/sc-game-base",
-    "version": "1.0.0",
-    "description": "TypeScript definitions for sc-game-base",
-    "scripts": {
-        "reg": "npm set registry http://npm.lumigame.com",
-        "pub": "npm publish --registry http://npm.lumigame.com",
-        "betaver": "npm version prerelease --preid beta",
-        "pubbeta": "npm publish --registry http://npm.lumigame.com --tag beta"
-    },
-    "repository": {
-        "type": "git",
-        "url": "git@git3.nexdev.net:l1/sc-packages/sc-game-base-type",
-        "directory": "sc-game-base"
-    },
-    "devDependencies": {
-        "sc-game-base": "^5.2.2",
-        "sc-game-management-client": "^0.1.0"
-    },
-    "author": "",
-    "license": "ISC",
-    "types": "./index.d.ts"
+  "name": "@types/sc-game-base",
+  "version": "1.1.0",
+  "description": "TypeScript definitions for sc-game-base",
+  "scripts": {
+    "reg": "npm set registry http://npm.lumigame.com",
+    "pub": "npm publish --registry http://npm.lumigame.com",
+    "betaver": "npm version prerelease --preid beta",
+    "pubbeta": "npm publish --registry http://npm.lumigame.com --tag beta"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@git3.nexdev.net:l1/sc-packages/sc-game-base-type",
+    "directory": "sc-game-base"
+  },
+  "devDependencies": {
+    "sc-game-base": "^5.5.0",
+    "sc-game-management-client": "^0.1.0"
+  },
+  "author": "",
+  "license": "ISC",
+  "types": "./index.d.ts"
 }
