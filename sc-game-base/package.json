@@ -14,8 +14,8 @@
     "directory": "sc-game-base"
   },
   "devDependencies": {
-    "sc-game-base": "^5.5.0",
-    "sc-game-management-client": "^0.1.0"
+    "sc-game-base": "^6.3.2",
+    "sc-game-management-client": "^0.1.5"
   },
   "author": "",
   "license": "ISC",
